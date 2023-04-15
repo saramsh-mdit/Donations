@@ -1,4 +1,4 @@
-import { verifyToken } from "../controller/auth.services.js";
+import { verifyToken } from "../controller/auth.service.js";
 import { UserModel } from "../models/user.js";
 
 const authticationMiddleware = async (req, res, next) => {
