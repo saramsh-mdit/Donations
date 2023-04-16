@@ -22,6 +22,15 @@ export const loginUser = async (email, password) => {
   }
 };
 
+export const getUser = async (id) => {
+  try {
+    const user = await UserModel.findOne({ id });
+    return { username: user.username, email: user.email, id: user.id };
+  } catch (e) {
+    throw { message: "email or password is wrong, or not registerd" };
+  }
+};
+
 const createToken = (value) => {
   return { token: jwt.sign(value, KEY, { expiresIn: "3d" }) };
 };
